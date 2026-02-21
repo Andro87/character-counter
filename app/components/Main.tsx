@@ -124,6 +124,9 @@ export const Main = () => {
                 Analyze your text in real-time.
             </h1>
             <form action="" className="space-y-4">
+                <label htmlFor="text" className="capitalize visually-hidden">
+                    write here the text to analyze
+                </label>
                 <textarea
                     className={`font-normal text-preset-3/[140%] tracking-[-0.6px] text-neutral-700 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 w-full rounded-xl resize-none p-5 ${errorMessage && "border border-orange-800 dark:border-orange-500 drop-shadow-[0px_0px_8px_rgb(218,55,1)]  dark:drop-shadow-[0_0px_10px_rgb(254,129,89)] "} hover:cursor-pointer hover:text-neutral-900 hover:bg-neutral-200 hover:dark:text-neutral-200  hover:dark:bg-neutral-600 focus:outline-2 focus:outline-purple-500 focus:drop-shadow-[0px_0px_5px_rgb(194,124,248)]`}
                     placeholder="Start typing here… (or paste your text)"
