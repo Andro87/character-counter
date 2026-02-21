@@ -10,7 +10,6 @@ This is a solution to the [Character counter challenge on Frontend Mentor](https
     - [Links](#links)
 - [My process](#my-process)
     - [Built with](#built-with)
-    - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -35,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/Andro87/character-counter.git)
+- Live Site URL: [Add live site URL here](https://character-counter-rho-five.vercel.app/)
 
 ## My process
 
@@ -48,11 +47,6 @@ Users should be able to:
 - Mobile-first workflow
 - [Next.js](https://nextjs.org/) - React framework
 
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
 ## Author
 
-- Frontend Mentor - [@Andro87](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@Andro87](https://www.frontendmentor.io/profile/Andro87)
