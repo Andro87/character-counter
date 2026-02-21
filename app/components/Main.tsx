@@ -1,5 +1,8 @@
 "use client";
 
+import { CharacterLimit } from "./CharacterLimit";
+import { Checkbox } from "./Checkbox";
+import { ErrorMessage } from "./EroorMessage";
 import { LetterStat } from "./LetterStat";
 import { Stat } from "./Stat";
 import { useState } from "react";
@@ -137,81 +140,30 @@ export const Main = () => {
                     aria-describedby="error_message"
                 ></textarea>
 
-                {errorMessage && (
-                    <p
-                        id="error_message"
-                        className=" flex items-center gap-2 font-normal text-preset-4/[130%] tracking-[-0.6px] text-orange-800 dark:text-orange-500"
-                    >
-                        <span>
-                            <Info />
-                        </span>
-                        Limit reached! Your text exceeds {textLimit} characters.
-                    </p>
-                )}
+                {errorMessage && <ErrorMessage limit={textLimit} />}
 
                 <div className="flex flex-col md:flex-row font-normal text-preset-4/[130%] tracking-[-0.6px]  gap-3 md:gap-6">
-                    <div className="flex items-center gap-2.5 ">
-                        <input
-                            type="checkbox"
-                            id="no_spaces"
-                            name="no_spaces"
-                            checked={isExcludeSpace}
-                            className="relative appearance-none w-4 h-4 cursor-pointer border border-neutral-900 dark:border-neutral-200 rounded-sm transition-all hover:border-neutral-600 dark:hover:border-neutral-0 focus:bg-neutral-0 focus:outline-offset-3 focus:border focus:border-neutral-200 focus:outline-purple-400 focus:ring-4 focus:ring-neutral-0  focus:checked:border-neutral-0 focus:checked:bg-purple-400 checked:bg-purple-400 checked:border-purple-400 p-2 [ checkbox-check ] "
-                            onChange={handleIsExcludeSpace}
-                        />
-                        <label htmlFor="no_spaces" className="capitalize ">
-                            Exclude Spaces
-                        </label>
-                    </div>
+                    <Checkbox
+                        inputId="no_spaces"
+                        inputName="no_spaces"
+                        isChecked={isExcludeSpace}
+                        inputTitle="Exclude Spaces"
+                        onHandleCheckbox={handleIsExcludeSpace}
+                    />
 
                     <div className="flex gap-2.5">
-                        <div className="flex items-center gap-2.5 ">
-                            <input
-                                type="checkbox"
-                                id="isSetLimit"
-                                name="isSetLimit"
-                                checked={isSetLimitOpen}
-                                className="relative appearance-none w-4 h-4 cursor-pointer border border-neutral-900 dark:border-neutral-200 rounded-sm transition-all hover:border-neutral-600 dark:hover:border-neutral-0 focus:bg-neutral-0 focus:outline-offset-3 focus:border focus:border-neutral-200 focus:outline-purple-400 focus:ring-4 focus:ring-neutral-0  focus:checked:border-neutral-0 focus:checked:bg-purple-400 checked:bg-purple-400 checked:border-purple-400 p-2 [ checkbox-check ] "
-                                onChange={handleIsSetLimitOpen}
-                            />
-                            <label htmlFor="isSetLimit" className="capitalize ">
-                                Set Character Limit
-                            </label>
-                        </div>
+                        <Checkbox
+                            inputId="isSetLimit"
+                            inputName="isSetLimit"
+                            isChecked={isSetLimitOpen}
+                            inputTitle="Set Character Limit"
+                            onHandleCheckbox={handleIsSetLimitOpen}
+                        />
                         {isSetLimitOpen && (
-                            <div className="flex items-center gap-2.5 ">
-                                <input
-                                    type="number"
-                                    id="textLimit"
-                                    name="textLimit"
-                                    value={textLimit ?? ""}
-                                    min={1}
-                                    step={1}
-                                    className=" appearance-none relative w-15 h-6 cursor-pointer border border-neutral-900 dark:border-neutral-200 rounded-sm transition-all hover:border-neutral-600 dark:hover:border-neutral-0 focus:bg-neutral-0 focus:outline-offset-4 focus:border focus:border-neutral-200 focus:outline-purple-400 focus:ring-4 focus:ring-neutral-0  focus:checked:border-neutral-0 focus:checked:bg-purple-400 checked:bg-purple-400 checked:border-purple-400 p-2  [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none "
-                                    onChange={handleTextLimit}
-                                    onKeyDown={e => {
-                                        // Prevents users from even typing '.', '-', or 'e'
-                                        if (
-                                            [
-                                                "e",
-                                                "E",
-                                                "-",
-                                                "+",
-                                                ".",
-                                                ","
-                                            ].includes(e.key)
-                                        ) {
-                                            e.preventDefault();
-                                        }
-                                    }}
-                                />
-                                <label
-                                    htmlFor="textLimit"
-                                    className="capitalize visually-hidden "
-                                >
-                                    Set Character Limit
-                                </label>
-                            </div>
+                            <CharacterLimit
+                                limit={textLimit}
+                                onHandleTextLimit={handleTextLimit}
+                            />
                         )}
                     </div>
                     <p className="md:ml-auto">
